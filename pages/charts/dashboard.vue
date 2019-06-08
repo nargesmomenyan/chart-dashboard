@@ -3,31 +3,27 @@
     <v-layout row wrap align-space-between>
       <v-flex xs6>
         <v-card>
-        
           <v-card-text>
             <div>
-              <highcharts class="chart" :options="callBasedOnSpecialistStats"></highcharts>
+              <app-high-charts :inputOptions="callBasedOnSpecialistStats"></app-high-charts>
             </div>
           </v-card-text>
         </v-card>
       </v-flex>
       <v-flex xs6>
         <v-card>
-        
           <v-card-text>
             <div>
-              <highcharts class="chart" :options="callStats"></highcharts>
-              <!-- <app-high-charts :inputOptions="chartOptions"></app-high-charts> -->
+              <app-high-charts :inputOptions="callStats"></app-high-charts>
             </div>
           </v-card-text>
         </v-card>
       </v-flex>
       <v-flex xs6>
         <v-card>
-        
           <v-card-text>
             <div>
-              <highcharts class="chart" :options="physicianPatiensStats"></highcharts>
+              <app-high-charts :inputOptions="physicianPatiensStats"></app-high-charts>
             </div>
           </v-card-text>
         </v-card>
@@ -35,10 +31,9 @@
 
       <v-flex xs6>
         <v-card>
-       
           <v-card-text>
             <div>
-              <highcharts class="chart" :options="loadRrevenueStats" ref="revenueChart"></highcharts>
+              <app-high-charts :inputOptions="loadRrevenueStats"></app-high-charts>
             </div>
           </v-card-text>
         </v-card>
@@ -50,6 +45,7 @@
 <script>
 import Highcharts from "highcharts";
 import AppHighCharts from "~/components/UI/Charts/app-high-charts";
+
 import * as data from "~/assets/data.js";
 export default {
   data() {
@@ -66,15 +62,14 @@ export default {
   },
   computed: {
     loadRrevenueStats() {
-      
       var chartData = this.revenueStats;
-      
+
       this.$store.commit("SetRevenueStats", {
         name: "هزینه‌های جانبی ",
         data: [1, 2, 5, 9, 2, 3]
       });
       chartData.series.push(this.$store.getters.getRevenueStats);
-      
+
       return chartData;
     }
   }

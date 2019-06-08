@@ -13,10 +13,6 @@ export const allCallStats = {
             text: "تعداد تماس"
         }
     },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y:,.0f}',
-        useHTML: true
-    },
     series: [
         {
             name: "موفق",
@@ -31,7 +27,7 @@ export const allCallStats = {
 
 export const physicianPatiensStats = {
     chart: {
-        type: "bar".toLowerCase(),
+        type: "bar",
     },
     title: {
         text: "آمار ثبت پزشکان و بیماران جدید در سال جاری"
@@ -43,11 +39,6 @@ export const physicianPatiensStats = {
         title: {
             text: "تعداد ثبت"
         }
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y:,.0f}',
-
-        useHTML: true
     },
     series: [
         {
@@ -77,7 +68,7 @@ export const revenueStats = {
         align: 'left',
         verticalAlign: 'top',
         fontSize: 11,
-        x: 150,
+        x: 120,
         y: 100,
         floating: true,
         borderWidth: 1,
@@ -95,25 +86,6 @@ export const revenueStats = {
     yAxis: {
         title: {
             text: "میزان هزینه/درآمد - میلیون تومان"
-        }
-    },
-    tooltip: {
-        pointFormat: '{series.name}: {point.y:,.0f}',
-        useHTML: true
-    },
-    plotOptions: {
-        area: {
-
-            marker: {
-                enabled: false,
-                symbol: 'circle',
-                radius: 2,
-                states: {
-                    hover: {
-                        enabled: true
-                    }
-                }
-            }
         }
     },
     series: [

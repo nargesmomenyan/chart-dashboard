@@ -1,9 +1,5 @@
 <template>
-  <div class="chartElem">
-    <div class="row">
-      <highcharts class="chart" :options="chartOptions" v-bind="$attrs"></highcharts>
-    </div>
-  </div>
+  <highcharts :options="defaultOption" v-bind="$attrs" v-on="$listeners"></highcharts>
 </template>
 
 <script>
@@ -15,34 +11,35 @@ export default {
   },
   data() {
     return {
-      chartOptions: {
-        chart: {
-          type: this.inputOptions.chartType.toLowerCase()
+      defaultOption: {
+        tooltip: {
+          pointFormat: "{series.name}: {point.y:,.0f}",
+          useHTML: true
         },
-        title: {
-          text: this.inputOptions.title
-        },
-        xAxis: {
-          categories: this.inputOptions.xAxisو
-        },
-        yAxis: {
-          title: {
-            text: this.inputOptions.yTitle
+        plotOptions: {
+          area: {
+            marker: {
+              enabled: false,
+              symbol: "circle",
+              radius: 2,
+              states: {
+                hover: {
+                  enabled: true
+                }
+              }
+            }
           }
-        },
-        series: this.inputOptions.dataSeries
+        }
       }
     };
+  },
+  created() {
+    Object.assign(this.defaultOption, this.inputOptions);
   },
   watch: {
     inputOptions: {
       handler(val) {
-        this.chartOptions.title.text = this.inputOptions.title;
-        this.chartOptions.yAxis.title.text = this.inputOptions.yTitle;
-        this.chartOptions.chart.type = this.inputOptions.chartType.toLowerCase();
-        this.chartOptions.series.data = this.inputOptions.data;
-        this.chartOptions.xAxis.categories = this.inputOptions.xAxis;
-        this.chartOptions.series = this.inputOptions.dataSeries;
+        Object.assign(this.defaultOption, this.inputOptions);
       },
       deep: true
     }
