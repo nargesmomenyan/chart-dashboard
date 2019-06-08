@@ -14,8 +14,7 @@ export const allCallStats = {
         }
     },
     tooltip: {
-        pointFormat: '{series.name}: {point.y:,.0f}',
-        
+        pointFormat: '{series.name}: {point.y:,.0f}',        
         useHTML: true
     },
     series: [
@@ -29,6 +28,70 @@ export const allCallStats = {
         }
     ]
 };
+
+export const physicianPatiensStats={
+    chart: {
+        type: "bar".toLowerCase(),
+    }, 
+    title: {
+        text: "آمار ثبت پزشکان و بیماران جدید در سال جاری"
+    },
+    xAxis: {
+        categories: ["فروردین", "اردیبهشت", "خرداد"]
+    },
+    yAxis: {
+        title: {
+            text: "تعداد ثبت"
+        }
+    },
+    tooltip: {
+        pointFormat: '{series.name}: {point.y:,.0f}',
+        
+        useHTML: true
+    },
+    series: [
+        {
+            name: "پزشک ",
+            data: [100, 208, 550]
+        },
+        {
+            name: "بیمار",
+            data: [900, 700, 890]
+        }
+    ]
+}
+
+export const revenueStats={
+    chart: {
+        type: "areaSpline".toLowerCase(),
+    }, 
+    title: {
+        text: "میزان هزینه و درآمد سال جاری از تماس‌ها"
+    },
+    xAxis: {
+        categories: ["فروردین", "اردیبهشت", "خرداد"]
+    },
+    yAxis: {
+        title: {
+            text: "تومان"
+        }
+    },
+    tooltip: {
+        pointFormat: '{series.name}: {point.y:,.0f}',        
+        useHTML: true
+    },
+    series: [
+        {
+            name: "هزینه ",
+            data: [10000000, 20000000, 15000000]
+        },
+        {
+            name: "درآمد",
+            data: [15000000, 21000000, 22000000]
+        }
+    ]
+}
+
 export const callBasedOnSpecialistStats = {
     chart: {
         type: "pie",
