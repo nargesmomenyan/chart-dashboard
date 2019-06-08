@@ -3,9 +3,7 @@
     <v-layout row wrap align-space-between>
       <v-flex xs6>
         <v-card>
-          <v-card-title primary-title>
-            <h4></h4>
-          </v-card-title>
+        
           <v-card-text>
             <div>
               <highcharts class="chart" :options="callBasedOnSpecialistStats"></highcharts>
@@ -15,9 +13,7 @@
       </v-flex>
       <v-flex xs6>
         <v-card>
-          <v-card-title primary-title>
-            <h4></h4>
-          </v-card-title>
+        
           <v-card-text>
             <div>
               <highcharts class="chart" :options="callStats"></highcharts>
@@ -28,9 +24,7 @@
       </v-flex>
       <v-flex xs6>
         <v-card>
-          <v-card-title primary-title>
-            <h4></h4>
-          </v-card-title>
+        
           <v-card-text>
             <div>
               <highcharts class="chart" :options="physicianPatiensStats"></highcharts>
@@ -41,9 +35,7 @@
 
       <v-flex xs6>
         <v-card>
-          <v-card-title primary-title>
-            <h4></h4>
-          </v-card-title>
+       
           <v-card-text>
             <div>
               <highcharts class="chart" :options="loadRrevenueStats" ref="revenueChart"></highcharts>

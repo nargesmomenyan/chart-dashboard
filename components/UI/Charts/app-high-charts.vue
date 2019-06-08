@@ -1,7 +1,7 @@
 <template>
   <div class="chartElem">
     <div class="row">
-      <highcharts class="chart" :options="chartOptions"></highcharts>
+      <highcharts class="chart" :options="chartOptions" v-bind="$attrs"></highcharts>
     </div>
   </div>
 </template>
