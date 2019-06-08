@@ -39,19 +39,18 @@
         </v-card>
       </v-flex>
 
-       <v-flex xs6>
+      <v-flex xs6>
         <v-card>
           <v-card-title primary-title>
             <h4></h4>
           </v-card-title>
           <v-card-text>
             <div>
-              <highcharts class="chart" :options="revenueStats"></highcharts>
+              <highcharts class="chart" :options="loadRrevenueStats" ref="revenueChart"></highcharts>
             </div>
           </v-card-text>
         </v-card>
       </v-flex>
-
     </v-layout>
   </v-container>
 </template>
@@ -63,15 +62,29 @@ import * as data from "~/assets/data.js";
 export default {
   data() {
     return {
-      //   chartTypes: ["Spline", "AreaSpline", "Line", "Scatter", "Column", "Area"],
       callBasedOnSpecialistStats: data.callBasedOnSpecialistStats,
       callStats: data.allCallStats,
       physicianPatiensStats: data.physicianPatiensStats,
-      revenueStats:data.revenueStats
+      revenueStats: data.revenueStats,
+      test: data.test
     };
   },
   components: {
     AppHighCharts
+  },
+  computed: {
+    loadRrevenueStats() {
+      
+      var chartData = this.revenueStats;
+      
+      this.$store.commit("SetRevenueStats", {
+        name: "هزینه‌های جانبی ",
+        data: [1, 2, 5, 9, 2, 3]
+      });
+      chartData.series.push(this.$store.getters.getRevenueStats);
+      
+      return chartData;
+    }
   }
 };
 </script>
